@@ -116,3 +116,43 @@ public class Main {
 > -   다형성을 이용하여, 전체 시스템의 모든 소스코드 의존성에 대한 절대적인 제어 권한을 획득할 수 있는 능력
 > -   객체지향을 이용하여, 플러그인 아키텍쳐를 구성할 수 있고, 이를 통해 고수준의 정책을 포함하는 모듈은 저수준의 세부사항을 포함하는 모듈에 대해 독립성을 보장
 > -   저수준의 세부사항은 중요도가 낮은 플러그인 모듈로 개발 할 수 있고, 고수준의 정책을 포함하는 모듈과는 독립적으로 개발하고 배포할 수 있음
+
+## 3. 추가로 공부한것
+
+### 1. 플러그인 VS 라이브러리
+
+#### 1. 라이브러리 (Library)
+
+-   정의: 라이브러리는 `특정 기능을 구현한 코드의 모음`으로, 다른 프로그램에서 사용할 수 있도록 제공
+-   사용 방식: 개발자가 코드 내에서 라이브러리를 호출하여 필요한 기능을 사용함. 예를 들어, import 또는 include 키워드를 사용하여 라이브러리를 코드에 포함시킴
+-   목적: 재사용 가능한 기능을 제공하여 개발자가 중복된 코드를 작성하지 않고도 다양한 기능을 쉽게 사용할 수 있도록 함
+
+#### 2. 플러그인 (Plugin)
+
+-   정의: 플러그인은 기본 프로그램에 `추가 기능`을 동적으로 제공하는 모듈
+-   사용 방식: 기본 프로그램이 실행되는 동안 플러그인을 로드하고 실행할 수 있음. 플러그인은 `인터페이스를 구현`하여 기본 프로그램과 상호작용함
+-   목적: 프로그램의 기능을 확장하거나 맞춤형 기능을 추가할 수 있도록 함. 기본 프로그램을 수정하지 않고도 새로운 기능을 추가할 수 있음
+
+|          | 라이브러리                                                                         | 플러그인                                                                                                               |
+| -------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| 의존성   | 프로그램이 라이브러리에 의존함.<br/>라이브러리가 없으면 프로그램이 올바르게 동작 X | 프로그램은 기본 기능을 제공하고, 플러그인은 선택적으로 추가 기능을 제공.<br/>플러그인 없이도 프로그램 기본 기능은 동작 |
+| 동적로딩 | 컴파일 타임에 프로그램에 포함 <br/> 프로그램 시작시 라이브러리가 로드 됨           | 런타임에 동적으로 로드 됨 <br/> 프로그램이 실행중일때 플러그인 추가 제거 가능 <br/>                                    |
+
+### 2. Can runtime polymorphism be called IOC ? 다형성 === IOC ?
+
+https://stackoverflow.com/questions/21171580/can-runtime-polymorphism-be-called-inversion-of-control-or-otherwise
+
+> Implementation techniques (section of IOC)<br/>
+> In object-oriented programming, there are several basic techniques to implement inversion of control. These are: <br/>
+> -1- Using a factory pattern<br/>
+> -2- Using a service locator pattern<br/>
+> -3- Using a dependency injection, for example:<br/>
+> -a- A constructor injection<br/>
+> -b- Parameter injection<br/>
+> -c- A setter injection<br/>
+> -d- An interface injection<br/>
+> -4- Using a contextualized lookup<br/>
+> -5- Using Template method design pattern<br/>
+> -6- Using strategy design pattern<br/>
+
+> Dependency injection is something which is based on the idea of Runtime/Dynamic polymorphism
